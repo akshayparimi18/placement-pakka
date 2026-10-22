@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schema.anna.partners/v2/anna-app.schema.json",
+  "schema_version": 2,
+  "id": "placement-pakka",
+  "name": "Placement Pakka",
+  "version": "2.0.0",
+  "description": "AI Campus Placement Doom Panel (Brutal Architect, Unhinged PM, HR CTC Calculator), Live Spoken Voice Hot-Seat Mock Interviewer, and APS Streak Tracker for the Indian tech ecosystem.",
+  "author": {
+    "name": "Akshay Parimi",
+    "handle": "akshayparimi18",
+    "url": "https://github.com/akshayparimi18/placement-pakka"
+  },
+  "license": "MIT",
+  "categories": ["career", "education", "developer-tools", "productivity"],
+  "tags": [
+    "placements",
+    "resume-roast",
+    "ctc-predictor",
+    "mock-interview",
+    "dsa",
+    "india-tech",
+    "langgraph"
+  ],
+  "prompt_instructions": "Whenever the user mentions resumes, CV reviews, campus placements, fresher hiring, TCS/Infosys/Wipro/Cognizant mass recruiters, Amazon/Flipkart/Google/Microsoft SDE interviews, LeetCode/DSA preparation, GitHub profile roasts, or Indian CTC/LPA salary package predictions, automatically summon the `placement-pakka` UI window (`window.Control`) and invoke the `evaluate_candidate` tool from `placement-panel`. Always render `display_blocks` verbatim so the user sees their complete 3-agent CTC Scorecard without paraphrasing.",
+  "skills": [
+    {
+      "id": "placement-coach",
+      "path": "./skills/placement-coach",
+      "entry": "./skills/placement-coach/SKILL.md",
+      "default_enabled": true
+    }
+  ],
+  "executas": [
+    {
+      "id": "placement-panel",
+      "handle": "placement-panel",
+      "path": "./executas/placement-panel",
+      "manifest": "./executas/placement-panel/executa.json",
+      "required": true,
+      "capabilities": {
+        "sampling": true,
+        "storage": true
+      }
+    }
+  ],
+  "tools": [
+    {
+      "id": "placement-panel",
+      "source": "bundled:placement-panel",
+      "path": "./executas/placement-panel"
+    }
+  ],
+  "ui": {
+    "entry": "ui/index.html",
+    "form_factors": ["desktop", "mobile"],
+    "window": {
+      "title": "Placement Pakka — AI Placement Panel & CTC Predictor",
+      "singleton": true,
+      "width": 920,
+      "height": 680,
+      "min_width": 400,
+      "min_height": 540,
+      "resizable": true
+    },
+    "host_api": {
+      "grants": [
+        "llm.complete",
+        "tools.call",
+        "storage.get",
+        "storage.set",
+        "storage.list",
+        "image.generate",
+        "audio.session",
+        "audio.speak",
+        "audio.transcribe",
+        "chat.append_artifact",
+        "window.Control",
+        "mobile.share"
+      ],
+      "tools": [
+        "required:bundled:placement-panel"
+      ]
+    }
+  }
+}

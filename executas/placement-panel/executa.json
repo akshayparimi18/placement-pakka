@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.anna.partners/v2/executa.schema.json",
+  "schema_version": 2,
+  "id": "placement-panel",
+  "name": "Placement Pakka Multi-Agent Panel",
+  "version": "2.0.0",
+  "description": "3-Agent LangGraph Campus Placement Panel (Brutal Staff Architect, Unhinged Startup PM, Placement Cell HR CTC Calculator) powered by Anna Host reverse-RPC sampling/createMessage and APS storage.",
+  "protocol": "jsonrpc-stdio",
+  "capabilities": {
+    "sampling": true,
+    "storage": true
+  },
+  "run": {
+    "command": "python",
+    "args": ["panel_plugin.py"],
+    "env": {
+      "PYTHONIOENCODING": "utf-8",
+      "PYTHONUTF8": "1"
+    }
+  },
+  "profiles": {
+    "default": {
+      "command": "python",
+      "args": ["panel_plugin.py"]
+    },
+    "windows-venv": {
+      "command": "..\\..\\.venv\\Scripts\\python.exe",
+      "args": ["panel_plugin.py"]
+    }
+  },
+  "tools": [
+    {
+      "name": "evaluate_candidate",
+      "description": "Runs the 3-agent Placement Pakka interview panel (Architect -> PM -> HR CTC Calculator) on a candidate's resume, GitHub summary, or project description, returning structured JSON and a verbatim Markdown CTC Scorecard in display_blocks."
+    },
+    {
+      "name": "voice_hotseat_turn",
+      "description": "Evaluates a candidate's spoken answer in the Live Voice Hot-Seat mock interview and generates the next spoken grill question with fluency and confidence scores."
+    }
+  ]
+}
