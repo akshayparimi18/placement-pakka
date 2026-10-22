@@ -12,7 +12,9 @@
   },
   "run": {
     "command": "python",
-    "args": ["panel_plugin.py"],
+    "args": [
+      "panel_plugin.py"
+    ],
     "env": {
       "PYTHONIOENCODING": "utf-8",
       "PYTHONUTF8": "1"
@@ -21,11 +23,15 @@
   "profiles": {
     "default": {
       "command": "python",
-      "args": ["panel_plugin.py"]
+      "args": [
+        "panel_plugin.py"
+      ]
     },
     "windows-venv": {
       "command": "..\\..\\.venv\\Scripts\\python.exe",
-      "args": ["panel_plugin.py"]
+      "args": [
+        "panel_plugin.py"
+      ]
     }
   },
   "tools": [
@@ -37,5 +43,7 @@
       "name": "voice_hotseat_turn",
       "description": "Evaluates a candidate's spoken answer in the Live Voice Hot-Seat mock interview and generates the next spoken grill question with fluency and confidence scores."
     }
-  ]
+  ],
+  "tool_id": "placement-panel",
+  "type": "python"
 }

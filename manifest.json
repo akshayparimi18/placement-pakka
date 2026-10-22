@@ -1,0 +1,75 @@
+{
+  "schema": 2,
+  "required_executas": [
+    {
+      "tool_id": "placement-panel"
+    }
+  ],
+  "tags": [
+    "placements",
+    "resume-roast",
+    "ctc-predictor",
+    "mock-interview",
+    "dsa"
+  ],
+  "ui": {
+    "bundle": {
+      "format": "static-spa",
+      "entry": "index.html",
+      "external_origins": [
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com"
+      ]
+    },
+    "views": [
+      {
+        "name": "main",
+        "title": "Placement Pakka \u2014 AI Placement Panel & CTC Predictor",
+        "default": true,
+        "default_size": {
+          "w": 920,
+          "h": 680
+        },
+        "min_size": {
+          "w": 400,
+          "h": 540
+        }
+      }
+    ],
+    "host_api": {
+      "tools": [
+        "placement-panel"
+      ],
+      "storage": [
+        "get",
+        "set",
+        "list"
+      ],
+      "audio": [
+        "session",
+        "speak",
+        "transcribe"
+      ],
+      "image": [
+        "generate"
+      ],
+      "chat": [
+        "append_artifact"
+      ],
+      "mobile": [
+        "share"
+      ],
+      "window": [
+        "ready",
+        "set_title"
+      ]
+    },
+    "csp_overrides": {},
+    "state_merge": "last_writer_wins"
+  },
+  "dev": {
+    "fixtures": [],
+    "seed_storage": {},
+    "user_id": 1
+  }
+}
